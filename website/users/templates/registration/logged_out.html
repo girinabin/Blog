@@ -1,0 +1,19 @@
+{% extends 'blog/base.html'%}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Log Out
+{% endblock title  %}
+
+{% block content %}
+<div class="container">
+    <h3 class="heading text-center font-weight-light" style="font-family:Patrick Hand">Log-Out </h3>
+</div>
+<div class="container">
+    <div class="card w-25 py-2 px-2 pb-0  mx-auto text-center">
+        <p class="py-auto">You have been logged out. <a href="{% url 'login' %}"><span class="btn btn-primary text-white">Log-In</span></a></p>
+    </div>
+</div>
+{% endblock content %}
