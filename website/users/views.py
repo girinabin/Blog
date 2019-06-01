@@ -18,8 +18,5 @@ def register(request):
         form = Registrationform()
     return render(request, 'users/register.html', {'form': form})
 
-def logout(request):
-    return render(request, 'registration/logout.html')
-
 def profile(request):
     return render(request, 'registration/profile.html')
