@@ -123,5 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 LOGIN_REDIRECT_URL = 'about-home' #after login it will take to about page
-# LOGIN_URL:'blog-home'
+LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'

@@ -1,0 +1,9 @@
+{%extends "blog/base.html" %}
+{% block content %}
+<form method="POST" class="form-group">
+	{% csrf_token %}
+    <h2>Are you sure you want to delete post'{{object.title}}</h2>
+    <button type="submit" class="btn btn-danger">Yes Delete</button>
+    <a class="btn btn-success" href="{%url 'post-detail' object.id %}">Cancel</a>
+</form>
+{% endblock content%}

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from users.forms import Registrationform
-from django.contrib.auth import login,authenticate
+from django.contrib.auth.decorators import login_required #profile ko lagi
+from django.contrib.auth import login, authenticate
 from django.contrib import auth
 
 def register(request):
@@ -11,12 +12,11 @@ def register(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
-            if user is not None:
-                auth.login(request, user)
-        return redirect('blog-home')
+            auth.login(request, user)
+        return redirect('login')
     else:
         form = Registrationform()
     return render(request, 'users/register.html', {'form': form})
-
+@login_required
 def profile(request):
     return render(request, 'registration/profile.html')
