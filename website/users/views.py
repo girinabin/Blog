@@ -3,6 +3,7 @@ from users.forms import Registrationform
 from django.contrib.auth.decorators import login_required #profile ko lagi
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -10,10 +11,11 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
+            messages.success(request,f'Account is created for {username}!')
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             auth.login(request, user)
-        return redirect('login')
+        return redirect('blog-home')
     else:
         form = Registrationform()
     return render(request, 'users/register.html', {'form': form})
